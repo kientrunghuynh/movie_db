@@ -22,3 +22,20 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Models\Genre::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->uuid(),
+        'name' => $faker->word(2),
+        'tmdb_id' => $faker->randomDigit()
+    ];
+});
+
+$factory->define(App\Models\Movie::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->uuid(),
+        'name' => $faker->sentence(6),
+        'imdb_id' => $faker->randomDigit(),
+        'tmdb_id' => $faker->randomDigit()
+    ];
+});
