@@ -12,12 +12,13 @@ class Genre extends Model
     protected $primaryKey = 'uuid';
     public $incrementing = false;
 
-    /**
-     * The  that belong to the user.
-     */
     public function genreTypes()
     {
         return $this->belongsToMany('App\Models\GenreType', 'genre_type_genre_pivot');
+    }
+
+    public function movies () {
+        return $this->belongsToMany('App\Models\Movie', 'movie_genre_pivot');
     }
 
     public function setNameAttribute($value)

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b499978457e332dd4d6782f28b1d7bdc",
+    "content-hash": "b895f78fdbc7e467195284cc1d9922df",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -3162,6 +3162,39 @@
                 "test"
             ],
             "time": "2015-05-11T14:41:42+00:00"
+        },
+        {
+            "name": "laracademy/interactive-make",
+            "version": "0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracademy/interactive-make.git",
+                "reference": "6fca4ee76f2bd29c8ab9901c1906efd93d7be2f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracademy/interactive-make/zipball/6fca4ee76f2bd29c8ab9901c1906efd93d7be2f4",
+                "reference": "6fca4ee76f2bd29c8ab9901c1906efd93d7be2f4",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laracademy\\Commands\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael McMullen",
+                    "email": "packages@laracademy.co"
+                }
+            ],
+            "description": "Interactive make CLI replacement for Laravel",
+            "time": "2017-04-28T12:58:06+00:00"
         },
         {
             "name": "maximebf/debugbar",

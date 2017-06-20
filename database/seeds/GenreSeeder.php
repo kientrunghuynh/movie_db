@@ -16,10 +16,6 @@ class GenreSeeder extends Seeder
      */
     public function run()
     {
-//        Genre::truncate();
-        $faker = Faker::create();
-        $genre_types = GenreType::all('id')->pluck('id')->toArray();
-
         /*
          * get all genres from Tmdb
          */
