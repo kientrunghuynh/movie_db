@@ -4,6 +4,8 @@ namespace App\Console\Commands\Movies;
 
 use Illuminate\Console\Command;
 
+use App\Jobs\FetchMovie;
+
 class FetchCommand extends Command
 {
     /**
@@ -11,9 +13,8 @@ class FetchCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'movie:fetch {--popular= : Get popular movies.}
-                {--toprated : get top rated movies.}
-                {--nowplaying= : get now playing movie.}';
+    protected $signature = 'movie:fetch
+                            {type? : which kind of movie to fetch}';
 
     /**
      * The console command description.
@@ -39,6 +40,18 @@ class FetchCommand extends Command
      */
     public function handle()
     {
-        //
+        $fetch_type = $this->argument('type') ?: $this->laravel['config']['schedule.movie.fetch_type'];
+
+        $job = (new FetchMovie('popular'));
+        dispatch(($job)->onQueue('movie-sync'));
+        $this->info('Sent fetch popular to queue');
+
+        $job = (new FetchMovie('nowplaying'));
+        dispatch(($job)->onQueue('movie-sync'));
+        $this->info('Sent fetch now playing to queue');
+
+        $job = (new FetchMovie('toprated'));
+        dispatch(($job)->onQueue('movie-sync'));
+        $this->info('Sent fetch top rated to queue');
     }
 }
